@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mocks = require('./mocks');
+const expressListEndpoints = require('express-list-endpoints');
 
 app.use(express.json());
 
@@ -29,4 +30,4 @@ if (Object.keys(mocks).length > 0){
   }
 }
 
-app.listen(3000, () => console.log('Listening on port 3000!'));
+app.listen(3000, () => console.log(`Listening on port 3000! \nListening routes: `, expressListEndpoints(app)));
